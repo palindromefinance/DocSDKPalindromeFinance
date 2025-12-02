@@ -76,6 +76,12 @@ const navigation = [
     ],
   },
   {
+    title: 'API Reference',
+    links: [
+      { title: 'Enums & Types', href: '/docs/enums' },
+    ],
+  },
+  {
     title: 'Real-time Events',
     links: [
       { title: 'watchUserEscrows', href: '/docs/watch-user-escrows' },
