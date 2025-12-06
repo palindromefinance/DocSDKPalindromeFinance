@@ -57,7 +57,7 @@ REACT_APP_USDT_TOKEN=0x337610d27c682E347C9cD60BD4b3b107C9d34dDd //this is USDT F
 
 With the widget, you can add ready‑made Crypto Pay with buttons to your shop or booking system without building a custom checkout flow from scratch. As a merchant, you only place the button where your customer confirms the basket (products, services, or booking details) and pass a few required fields such as title, amount and your address (you will receive the funds).​
 
-When the button is clicked, your customer is redirected to the decentralized Checkout System, where they connect a wallet, review the order and complete a secure crypto payment. You can access the checkout at: [Palindrome Pay](https://palindromefinance.com/checkout)
+When the button is clicked, your customer is redirected to the decentralized Checkout System, where they connect a wallet, review the order and complete a secure crypto payment. You can access the checkout at: [Palindrome Pay](https://palindromefinance.com/crypto-pay)
 
 Either with the SDK or the Widget, you and your customers can view and manage every payment transactions through the [Palindrome Crypto Escrow](https://palindromefinance.com/crypto-escrow). 
 
