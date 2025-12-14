@@ -66,23 +66,41 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>{pageTitle}</title>
         {description && <meta name="description" content={description} />}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Getting Started with Crypto Pay & Escrow SDK",
-            "description": "Add crypto payments and escrow to any app in minutes.",
-            "url": "https://sdk.palindromefinance.com/",
-            "breadcrumb": {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.palindromefinance.com" },
-                { "@type": "ListItem", "position": 2, "name": "Docs", "item": "https://sdk.palindromefinance.com" },
-                { "@type": "ListItem", "position": 3, "name": "Getting Started" }
-              ]
-            }
-          })}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: pageTitle,  // Better: use the dynamic page title
+              description: description || "Crypto Pay Gateway & Checkout System for your Business.", // fallback if needed
+              url: typeof window !== 'undefined' ? window.location.href : "https://sdk.palindromefinance.com/", // or use a prop for canonical URL
+              breadcrumb: {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://www.palindromefinance.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Docs",
+                    item: "https://sdk.palindromefinance.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: title || "Getting Started", // use dynamic title
+                    item: typeof window !== 'undefined' ? window.location.href : "https://sdk.palindromefinance.com/" // current page URL
+                  }
+                ]
+              }
+            })
+          }}
+        />
       </Head>
       <Layout title={title} tableOfContents={tableOfContents}>
         <Component {...pageProps} />
