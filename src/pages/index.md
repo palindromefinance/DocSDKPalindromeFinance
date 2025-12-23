@@ -95,7 +95,7 @@ Add this code to your product page, checkout page or booking confirmation:
     Palindrome Pay
   </button>
 </div>
-
+<!--// add the script before </body> -->
 <script src="https://palindromefinance.com/widget.js" data-palindrome-endpoint="https://palindromefinance.com/crypto-pay" defer></script>
 ```
 
@@ -135,7 +135,7 @@ Place this in product.liquid or a product section:
   />
   Palindrome Pay
 </button>
-
+<!--// add the script before </body> -->
 <script 
   src="https://palindromefinance.com/widget.js" 
   data-palindrome-endpoint="https://palindromefinance.com/crypto-pay" 

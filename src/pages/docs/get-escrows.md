@@ -4,10 +4,16 @@ description: Fetch all escrows from The Graph subgraph (indexed & enriched data)
 ---
 
 ```ts
-async getEscrows(): Promise<Escrow[]>
+async getEscrows(useCache?: boolean): Promise<Escrow[]>
 ```
 
-Retrieves all escrow deals that have been indexed by The Graph. This includes full metadata like title, IPFS hash, timestamps, and participant addresses — much richer than raw on-chain data.ReturnsPromise<Escrow[]> – Array of complete escrow objects.
+Retrieves all escrow deals that have been indexed by The Graph. This includes full metadata like title, IPFS hash, timestamps, and participant addresses – much richer than raw on-chain data.
+
+#### Parameters
+- `useCache?: boolean` – Optional. Use cached results if available (default: `true`)
+
+#### Returns
+`Promise<Escrow[]>` – Array of complete escrow objects
 
 ```ts
 import { createPalindromeSDK } from '@/lib/createSDK';
@@ -16,7 +22,11 @@ import { createPalindromeSDK } from '@/lib/createSDK';
 const { sdk } = await connectAndInitSDK();
 
 try {
+  // Get all escrows (with cache)
   const allEscrows = await sdk.getEscrows();
+  
+  // Or force fresh fetch from subgraph
+  const freshEscrows = await sdk.getEscrows(false);
 
   console.log(`Found ${allEscrows.length} escrows:`);
   allEscrows.forEach((escrow) => {
@@ -36,7 +46,7 @@ try {
 }
 ```
 
-Sample Escrow Object (from subgraph)
+#### Sample Escrow Object (from subgraph)
 
 ```ts
 {
@@ -55,3 +65,29 @@ Sample Escrow Object (from subgraph)
   messages: [...]                 // dispute messages (if any)
 }
 ```
+
+#### Caching Behavior
+
+The SDK uses intelligent caching to reduce subgraph queries:
+
+- **`useCache: true`** (default) – Returns cached data if available and not expired (TTL: 10 seconds)
+- **`useCache: false`** – Forces fresh fetch from subgraph, bypasses cache
+- Cache policy can be configured globally via `cachePolicy` in SDK config
+
+```ts
+// Configure cache behavior at SDK initialization
+const sdk = new PalindromeEscrowSDK({
+  // ... other config
+  cachePolicy: 'no-cache',    // 'default' | 'no-cache' | 'aggressive'
+  cacheTTL: 5000,             // milliseconds (default: 5000)
+});
+```
+
+#### When to Use `useCache: false`
+
+✅ After creating a new escrow (to immediately fetch updated list)  
+✅ After state changes (deposit, confirm, dispute)  
+✅ When displaying real-time dashboards  
+✅ During testing/debugging
+
+**See also** → [`getEscrowsByBuyer()`](/docs/get-escrows-by-buyer) · [`getEscrowsBySeller()`](/docs/get-escrows-by-seller) · [`getEscrowDetail()`](/docs/get-escrow-detail)

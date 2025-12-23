@@ -53,11 +53,10 @@ console.log("Status:", status);
 |--------------------------|------------------------|---------|------------------------------------------------|
 | `AWAITING_PAYMENT`       | Awaiting Payment       | orange  | Buyer needs to deposit funds                   |
 | `AWAITING_DELIVERY`      | Awaiting Delivery      | blue    | Seller should deliver product/service          |
-| `DISPUTED`               | Disputed               | red     | Dispute in progress — arbiter will resolve     |
+| `DISPUTED`               | Disputed               | red     | Dispute in progress – arbiter will resolve     |
 | `COMPLETE`               | Complete               | green   | Transaction completed successfully             |
 | `REFUNDED`               | Refunded               | gray    | Funds returned to buyer                        |
 | `CANCELED`               | Canceled               | gray    | Escrow was canceled                            |
-| `WITHDRAWN`              | Withdrawn              | gray    | Funds have been claimed                        |
 
 #### Example Badge Component
 
@@ -68,6 +67,29 @@ function StatusBadge({ state }: { state: EscrowState }) {
   const s = sdk.getEscrowStatusLabel(state);
   return (
     <span className={`px-3 py-1 rounded-full text-xs font-semibold bg-${s.color}-100 text-${s.color}-800`}>
+      {s.label}
+    </span>
+  );
+}
+```
+
+#### Dynamic Tailwind Classes
+
+Since Tailwind needs complete class names at build time, use a mapping object for colors:
+
+```tsx
+const colorClasses = {
+  orange: 'bg-orange-100 text-orange-800',
+  blue: 'bg-blue-100 text-blue-800',
+  red: 'bg-red-100 text-red-800',
+  green: 'bg-green-100 text-green-800',
+  gray: 'bg-gray-100 text-gray-800',
+};
+
+function StatusBadge({ state }: { state: EscrowState }) {
+  const s = sdk.getEscrowStatusLabel(state);
+  return (
+    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${colorClasses[s.color]}`}>
       {s.label}
     </span>
   );

@@ -1,13 +1,13 @@
 ---
 title: requestCancelSigned
-description: Gasless cancellation request — buyer or seller signs off-chain
+description: Cancellation request — buyer or seller signs off-chain
 ---
 
 ```ts
 async requestCancelSigned(walletClient: WalletClient, escrowId: bigint): Promise<string>
 ```
 
-**Gasless version** of `requestCancel()` — the user signs a message with a 60-minute deadline. Anyone (you, a relayer, or the dApp) can submit the signature on-chain.
+`requestCancel()` — the user signs a message with a 60-minute deadline. Anyone (you, a relayer, or the dApp) can submit the signature on-chain.
 
 Perfect for **zero-gas UX** — user clicks “Cancel” and pays nothing.
 
@@ -43,7 +43,7 @@ try {
   } else if (error.code === "INVALID_STATE") {
     alert("Cannot cancel in current escrow state");
   } else {
-    console.error("Gasless cancel request failed:", error.shortMessage || error.message);
+    console.error("Cancel request failed:", error.shortMessage || error.message);
   }
 }
 ```

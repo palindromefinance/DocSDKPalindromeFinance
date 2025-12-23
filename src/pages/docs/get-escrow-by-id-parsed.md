@@ -27,8 +27,8 @@ try {
     seller: escrow.seller,
     arbiter: escrow.arbiter,
     amount: escrow.amount,
-    state: escrow.state,           // number → use EscrowState enum
-    stateName: ['AWAITING_PAYMENT', 'AWAITING_DELIVERY', 'DISPUTED', 'COMPLETE', 'REFUNDED', 'CANCELED', 'WITHDRAWN'][escrow.state],
+    state: escrow.state,      
+    stateName: ['AWAITING_PAYMENT', 'AWAITING_DELIVERY', 'DISPUTED', 'COMPLETE', 'REFUNDED', 'CANCELED'][escrow.state],
     depositTime: Number(escrow.depositTime),
     maturityTime: Number(escrow.maturityTime),
     buyerCancelRequested: escrow.buyerCancelRequested,

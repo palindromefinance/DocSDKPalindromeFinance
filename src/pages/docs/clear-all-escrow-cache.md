@@ -44,7 +44,6 @@ console.log("State after deposit:", updatedEscrow.state); // → AWAITING_DELIVE
 | `cancelByTimeout()`           | Yes                           |
 | `startDispute()`              | Yes                           |
 | `submitArbiterDecision()`     | Yes                           |
-| `withdraw()`                  | Yes (optional)                |
 
 #### Pro Tip
 The SDK already calls `clearCache(escrowId)` internally for most actions — but calling `clearAllEscrowCache()` guarantees **all** cached escrows are refreshed.

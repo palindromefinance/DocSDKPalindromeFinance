@@ -1,13 +1,13 @@
 ---
 title: confirmDeliverySigned
-description: Gasless delivery confirmation — buyer signs off-chain, anyone can submit
+description: Delivery confirmation — buyer signs off-chain, anyone can submit
 ---
 
 ```ts
 async confirmDeliverySigned(walletClient: WalletClient, escrowId: bigint): Promise<string>
 ```
 
-**Gasless version** of `confirmDelivery()` — the buyer signs a message off-chain (no gas), and **anyone** (you, a relayer, or the seller) can submit the signature on-chain to release funds.
+`confirmDelivery()` — the buyer signs a message off-chain (no gas), and **anyone** (you, a relayer, or the seller) can submit the signature on-chain to release funds.
 
 Perfect for mobile users, dApp UX, or reducing buyer friction.
 
@@ -45,7 +45,7 @@ try {
   } else if (error.code === "SIGNATURE_EXPIRED") {
     alert("Signature deadline passed — please try again");
   } else {
-    console.error("Gasless confirm failed:", error.shortMessage || error.message);
+    console.error("Confirm failed:", error.shortMessage || error.message);
   }
 }
 ```

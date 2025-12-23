@@ -76,5 +76,4 @@ Upload a clear JSON:
 }
 ```
 
-**Next** → Winner calls [`withdraw`](/docs/withdraw) to claim funds
 

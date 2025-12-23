@@ -43,15 +43,13 @@ const navigation = [
       { title: 'createEscrow', href: '/docs/create-escrow' },
       { title: 'deposit', href: '/docs/deposit' },
       { title: 'confirmDelivery', href: '/docs/confirm-delivery' },
-      { title: 'confirmDeliverySigned (Gasless)', href: '/docs/confirm-delivery-signed' },
-      { title: 'withdraw', href: '/docs/withdraw' },
+      { title: 'confirmDeliverySigned', href: '/docs/confirm-delivery-signed' },
     ],
   },
   {
     title: 'Cancellation',
     links: [
       { title: 'requestCancel', href: '/docs/request-cancel' },
-      { title: 'requestCancelSigned (Gasless)', href: '/docs/request-cancel-signed' },
       { title: 'cancelByTimeout', href: '/docs/cancel-by-timeout' },
     ],
   },
@@ -59,6 +57,7 @@ const navigation = [
     title: 'Disputes',
     links: [
       { title: 'startDispute', href: '/docs/start-dispute' },
+      { title: 'startDisputeSigned', href: '/docs/start-dispute-signed' },
       { title: 'submitDisputeMessage', href: '/docs/submit-dispute-message' },
       { title: 'submitArbiterDecision', href: '/docs/submit-arbiter-decision' },
       { title: 'hasSubmittedEvidence', href: '/docs/has-submitted-evidence' },
@@ -68,7 +67,7 @@ const navigation = [
   {
     title: 'Utilities & Helpers',
     links: [
-      { title: 'getUSDTBalanceOf', href: '/docs/get-usdt-balance-of' },
+      { title: 'getTokenBalanceOf', href: '/docs/get-token-balance-of' },
       { title: 'formatTokenAmount', href: '/docs/format-token-amount' },
       { title: 'getMaturityInfo', href: '/docs/get-maturity-info' },
       { title: 'getEscrowStatusLabel', href: '/docs/get-escrow-status-label' },
@@ -85,8 +84,6 @@ const navigation = [
     title: 'Real-time Events',
     links: [
       { title: 'watchUserEscrows', href: '/docs/watch-user-escrows' },
-      { title: 'watchEscrowCreated', href: '/docs/watch-escrow-created' },
-      { title: 'watchAllEvents', href: '/docs/watch-all-events' },
     ],
   }
 ]

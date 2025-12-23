@@ -22,7 +22,6 @@ Represents the current lifecycle state of an escrow. Used in `EscrowData.state` 
 | 3     | COMPLETE           | Complete           | Transaction successfully finalized.              |
 | 4     | REFUNDED           | Refunded           | Funds returned to buyer.                         |
 | 5     | CANCELED           | Canceled           | Escrow canceled by mutual agreement or timeout.  |
-| 6     | WITHDRAWN          | Withdrawn          | Funds withdrawn by buyer/seller after resolution.|
 
 ---
 
