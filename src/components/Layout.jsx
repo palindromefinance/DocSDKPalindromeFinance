@@ -34,7 +34,6 @@ const navigation = [
       { title: 'getEscrowsByBuyer', href: '/docs/get-escrows-by-buyer' },
       { title: 'getEscrowsBySeller', href: '/docs/get-escrows-by-seller' },
       { title: 'getEscrowDetail', href: '/docs/get-escrow-detail' },
-      { title: 'getUserEscrows', href: '/docs/get-user-escrows' },
       { title: 'getNextEscrowId', href: '/docs/get-next-escrow-id' },
     ],
   },
@@ -47,7 +46,6 @@ const navigation = [
       { title: 'acceptEscrow', href: '/docs/accept-escrow' },
       { title: 'confirmDelivery', href: '/docs/confirm-delivery' },
       { title: 'confirmDeliverySigned', href: '/docs/confirm-delivery-signed' },
-      { title: 'prepareConfirmDeliverySigned', href: '/docs/prepare-confirm-delivery-signed' },
       { title: 'autoRelease', href: '/docs/auto-release' },
     ],
   },
@@ -56,7 +54,6 @@ const navigation = [
     links: [
       { title: 'requestCancel', href: '/docs/request-cancel' },
       { title: 'cancelByTimeout', href: '/docs/cancel-by-timeout' },
-      { title: 'getCancelRequestStatus', href: '/docs/get-cancel-request-status' },
     ],
   },
   {
@@ -66,7 +63,6 @@ const navigation = [
       { title: 'startDisputeSigned', href: '/docs/start-dispute-signed' },
       { title: 'submitDisputeMessage', href: '/docs/submit-dispute-message' },
       { title: 'submitArbiterDecision', href: '/docs/submit-arbiter-decision' },
-      { title: 'hasSubmittedEvidence', href: '/docs/has-submitted-evidence' },
       { title: 'getDisputeSubmissionStatus', href: '/docs/get-dispute-submission-status' },
       { title: 'getDisputeMessages', href: '/docs/get-dispute-messages' },
     ],
@@ -75,8 +71,6 @@ const navigation = [
     title: 'Wallet & Withdrawal',
     links: [
       { title: 'withdraw', href: '/docs/withdraw' },
-      { title: 'getWalletBalance', href: '/docs/get-wallet-balance' },
-      { title: 'getWalletSignatureCount', href: '/docs/get-wallet-signature-count' },
       { title: 'predictWalletAddress', href: '/docs/predict-wallet-address' },
     ],
   },
@@ -107,45 +101,6 @@ const navigation = [
       { title: 'getTokenAllowance', href: '/docs/get-token-allowance' },
       { title: 'approveTokenIfNeeded', href: '/docs/approve-token-if-needed' },
       { title: 'formatTokenAmount', href: '/docs/format-token-amount' },
-      { title: 'getUserBalances', href: '/docs/get-user-balances' },
-    ],
-  },
-  {
-    title: 'Fees & Status',
-    links: [
-      { title: 'getFeeBps', href: '/docs/get-fee-bps' },
-      { title: 'getFeeReceiver', href: '/docs/get-fee-receiver' },
-      { title: 'calculateFee', href: '/docs/calculate-fee' },
-      { title: 'getStatusLabel', href: '/docs/get-status-label' },
-      { title: 'getUserRole', href: '/docs/get-user-role' },
-      { title: 'getMaturityInfo', href: '/docs/get-maturity-info' },
-    ],
-  },
-  {
-    title: 'Simulation & Gas',
-    links: [
-      { title: 'simulateTransaction', href: '/docs/simulate-transaction' },
-      { title: 'simulateDeposit', href: '/docs/simulate-deposit' },
-      { title: 'simulateConfirmDelivery', href: '/docs/simulate-confirm-delivery' },
-      { title: 'simulateWithdraw', href: '/docs/simulate-withdraw' },
-      { title: 'estimateGasWithBuffer', href: '/docs/estimate-gas-with-buffer' },
-    ],
-  },
-  {
-    title: 'Cache & Health',
-    links: [
-      { title: 'healthCheck', href: '/docs/health-check' },
-      { title: 'getEscrowStatus', href: '/docs/get-escrow-status' },
-      { title: 'getCacheStats', href: '/docs/get-cache-stats' },
-      { title: 'clearAllCaches', href: '/docs/clear-all-caches' },
-      { title: 'clearEscrowCache', href: '/docs/clear-escrow-cache' },
-    ],
-  },
-  {
-    title: 'Real-time Events',
-    links: [
-      { title: 'watchUserEscrows', href: '/docs/watch-user-escrows' },
-      { title: 'watchEscrowStateChanges', href: '/docs/watch-escrow-state-changes' },
     ],
   },
   {
@@ -201,7 +156,7 @@ function Header({ navigation }) {
       <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
         <ThemeSelector className="relative z-10" />
         {<Link
-          href="https://github.com/palindromefinance"
+          href="https://github.com/palindromepay"
           className="group"
           aria-label="GitHub"
           target="_blank"
