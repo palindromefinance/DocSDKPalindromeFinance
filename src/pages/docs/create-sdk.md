@@ -1,6 +1,6 @@
 ---
 title: Create Palindrome SDK
-description: Initialize Apollo Client, Public Client, and create the PalindromeEscrowSDK instance
+description: Initialize Apollo Client, Public Client, and create the PalindromePaySDK instance
 ---
 
 Before you can use any of the SDK functions, you need to properly initialize and configure the required clients.
@@ -23,14 +23,14 @@ export const publicClient = createPublicClient({
 SDK Factory
 ```ts
 // lib/createSDK.ts
-import { PalindromeEscrowSDK } from '@palindromepay/sdk';
+import { PalindromePaySDK } from '@palindromepay/sdk';
 import { WalletClient } from 'viem';
 import { publicClient } from '@/config/viem';
 import { apolloClient } from '@/config/apollo';
 import { bscTestnet } from 'viem/chains';
 
 export const createPalindromeSDK = (walletClient?: WalletClient) => {
-  return new PalindromeEscrowSDK({
+  return new PalindromePaySDK({
     publicClient,
     walletClient: walletClient ?? undefined,
     chain: bscTestnet,
