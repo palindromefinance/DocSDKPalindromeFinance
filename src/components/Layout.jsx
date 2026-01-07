@@ -63,6 +63,7 @@ const navigation = [
       { title: 'startDisputeSigned', href: '/docs/start-dispute-signed' },
       { title: 'submitDisputeMessage', href: '/docs/submit-dispute-message' },
       { title: 'submitArbiterDecision', href: '/docs/submit-arbiter-decision' },
+      { title: 'hasSubmittedEvidence', href: '/docs/has-submitted-evidence' },
       { title: 'getDisputeSubmissionStatus', href: '/docs/get-dispute-submission-status' },
       { title: 'getDisputeMessages', href: '/docs/get-dispute-messages' },
     ],
