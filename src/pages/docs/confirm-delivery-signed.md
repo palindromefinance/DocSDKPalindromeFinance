@@ -37,22 +37,39 @@ import { createPalindromeSDK } from '@/lib/createSDK';
 const { sdk, walletClient } = await connectAndInitSDK(); // walletClient = buyer
 
 const escrowId = 42n;
+const buyerAddress = walletClient.account.address;
 
 try {
-  // Step 1: Prepare all signatures (buyer signs, no gas)
-  const prepared = await sdk.prepareConfirmDeliverySigned(walletClient, escrowId);
+  // Step 1: Get escrow data
+  const escrow = await sdk.getEscrowByIdParsed(escrowId);
 
-  console.log("Signatures prepared:");
-  console.log("Deadline:", new Date(Number(prepared.deadline) * 1000));
+  // Step 2: Get nonce and create deadline
+  const nonce = await sdk.getUserNonce(escrowId, buyerAddress);
+  const deadline = await sdk.createSignatureDeadline(60); // 60 minutes
 
-  // Step 2: Submit on-chain (can be same wallet or relayer)
+  // Step 3: Sign the confirmation message (buyer signs, no gas)
+  const coordSignature = await sdk.signConfirmDelivery(
+    walletClient,
+    escrowId,
+    deadline,
+    nonce
+  );
+
+  // Step 4: Sign wallet authorization
+  const buyerWalletSig = await sdk.signWalletAuthorization(
+    walletClient,
+    escrow.wallet,
+    escrowId
+  );
+
+  // Step 5: Submit on-chain (can be same wallet or relayer)
   const txHash = await sdk.confirmDeliverySigned(
     walletClient,           // or relayerWallet
     escrowId,
-    prepared.coordSignature,
-    prepared.deadline,
-    prepared.nonce,
-    prepared.buyerWalletSig
+    coordSignature,
+    deadline,
+    nonce,
+    buyerWalletSig
   );
 
   console.log("Delivery confirmed!");
@@ -114,16 +131,21 @@ const txHash = await sdk.confirmDeliverySigned(
 
 ```ts
 // Frontend: Buyer prepares signatures
-const prepared = await sdk.prepareConfirmDeliverySigned(walletClient, escrowId);
+const escrow = await sdk.getEscrowByIdParsed(escrowId);
+const nonce = await sdk.getUserNonce(escrowId, buyerAddress);
+const deadline = await sdk.createSignatureDeadline(60);
+const coordSignature = await sdk.signConfirmDelivery(walletClient, escrowId, deadline, nonce);
+const buyerWalletSig = await sdk.signWalletAuthorization(walletClient, escrow.wallet, escrowId);
 
 // Send to backend
 await fetch('/api/relay-confirm', {
   method: 'POST',
   body: JSON.stringify({
     escrowId: escrowId.toString(),
-    ...prepared,
-    deadline: prepared.deadline.toString(),
-    nonce: prepared.nonce.toString(),
+    coordSignature,
+    buyerWalletSig,
+    deadline: deadline.toString(),
+    nonce: nonce.toString(),
   }),
 });
 
@@ -138,4 +160,4 @@ const txHash = await sdk.confirmDeliverySigned(
 );
 ```
 
-**See also** → [`prepareConfirmDeliverySigned()`](/docs/prepare-confirm-delivery-signed) · [`signConfirmDelivery()`](/docs/sign-confirm-delivery) · [`confirmDelivery()`](/docs/confirm-delivery)
+**See also** → [`signConfirmDelivery()`](/docs/sign-confirm-delivery) · [`confirmDelivery()`](/docs/confirm-delivery) · [`getUserNonce()`](/docs/get-user-nonce)

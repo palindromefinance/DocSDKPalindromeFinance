@@ -98,4 +98,4 @@ await sendToRelayer({ escrowId, coordSig, walletSig, deadline, nonce });
 await sdk.confirmDeliverySigned(relayerWallet, escrowId, coordSig, deadline, nonce, walletSig);
 ```
 
-**See also** → [`confirmDeliverySigned()`](/docs/confirm-delivery-signed) · [`prepareConfirmDeliverySigned()`](/docs/prepare-confirm-delivery-signed) · [`getUserNonce()`](/docs/get-user-nonce)
+**See also** → [`confirmDeliverySigned()`](/docs/confirm-delivery-signed) · [`getUserNonce()`](/docs/get-user-nonce) · [`createSignatureDeadline()`](/docs/create-signature-deadline)

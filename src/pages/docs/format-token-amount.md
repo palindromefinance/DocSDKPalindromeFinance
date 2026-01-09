@@ -12,7 +12,7 @@ Converts a **raw token amount** (e.g. `1250000000000000000000n`) into a clean, f
 Works with any ERC20 token (USDT 18-dec, BUSD 18-dec, etc.).
 
 #### Parameters
-- `amount: bigint` – Raw token amount from contract (e.g. from `getUSDTBalanceOf`)
+- `amount: bigint` – Raw token amount from contract (e.g. from `getTokenBalance`)
 - `decimals: number` – Token decimals (usually 18 for USDT/BUSD on BSC)
 
 #### Returns
@@ -25,8 +25,8 @@ const { sdk } = await connectAndInitSDK();
 const USDT = "0x55d398326f99059fF775485246999027B3197955";
 
 try {
-  const rawBalance = await sdk.getUSDTBalanceOf("0xbuyer...", USDT);
-  
+  const rawBalance = await sdk.getTokenBalance("0xbuyer...", USDT);
+
   // Format with 18 decimals (standard for USDT on BSC)
   const formatted = sdk.formatTokenAmount(rawBalance, 18);
 
@@ -60,6 +60,6 @@ try {
 
 **No more guessing decimals — clean, readable token amounts every time!**
 
-**See also** → [`getUSDTBalanceOf()`](/docs/get-token-balance-of) · [`getEscrowUSDTBalanceFormatted()`](/docs/get-escrow-token-balance-formatted)
+**See also** → [`getTokenBalance()`](/docs/get-token-balance) · [`getTokenDecimals()`](/docs/get-token-decimals)
 
 

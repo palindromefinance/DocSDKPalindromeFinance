@@ -8,9 +8,9 @@ function LogomarkPaths() {
 }
 
 export function Logomark(props) {
-  return <img src={props.logo.src} className="h-10 w-auto" />
+  return <img src={props.logo.src} className="h-10 w-auto" alt="Palindrome Crypto Pay - Secure Escrow SDK" />
 }
 
 export function Logo(props) {
-  return <img src={props.logo.src} className="h-14 w-auto" />
+  return <img src={props.logo.src} className="h-14 w-auto" alt="Palindrome Crypto Pay - Blockchain Escrow Payment Solution" />
 }

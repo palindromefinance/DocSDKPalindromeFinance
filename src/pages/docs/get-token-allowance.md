@@ -109,4 +109,4 @@ if (allowance === MAX_UINT256) {
 }
 ```
 
-**See also** → [`approveTokenIfNeeded()`](/docs/approve-token-if-needed) · [`getTokenBalance()`](/docs/get-token-balance-of)
+**See also** → [`approveTokenIfNeeded()`](/docs/approve-token-if-needed) · [`getTokenBalance()`](/docs/get-token-balance)

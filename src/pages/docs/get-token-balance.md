@@ -71,15 +71,7 @@ try {
 Combine with these SDK methods for better UX:
 
 ```ts
-// Get multiple token balances at once
-const tokens = [USDT_ADDRESS, USDC_ADDRESS, BUSD_ADDRESS];
-const balances = await sdk.getUserBalances("0xuser...", tokens);
-
-for (const [token, { balance, formatted }] of balances) {
-  console.log(`Token ${token}: ${formatted}`);
-}
-
-// Or format individual balances
+// Format individual balances
 const decimals = await sdk.getTokenDecimals(tokenAddress);
 const readable = sdk.formatTokenAmount(balance, decimals);
 ```
@@ -105,4 +97,4 @@ try {
 
 **Fast, reliable, on-chain balance reading – no subgraph delay**
 
-**See also** → [`getUserBalances()`](/docs/get-user-balances) · [`formatTokenAmount()`](/docs/format-token-amount) · [`getTokenDecimals()`](/docs/get-token-decimals)
+**See also** → [`formatTokenAmount()`](/docs/format-token-amount) · [`getTokenDecimals()`](/docs/get-token-decimals) · [`getTokenAllowance()`](/docs/get-token-allowance)

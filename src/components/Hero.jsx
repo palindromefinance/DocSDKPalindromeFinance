@@ -39,7 +39,7 @@ export function Hero() {
             <Image
               className="absolute bottom-full right-full -mb-56 -mr-72 opacity-50"
               src={blurCyanImage}
-              alt=""
+              alt="Crypto escrow payment platform background"
               width={530}
               height={530}
               unoptimized
@@ -151,7 +151,7 @@ export function Hero() {
               <Image
                 className="absolute -right-64 -top-64"
                 src={blurCyanImage}
-                alt=""
+                alt="Blockchain escrow SDK decorative element"
                 width={530}
                 height={530}
                 unoptimized
@@ -160,7 +160,7 @@ export function Hero() {
               <Image
                 className="absolute -bottom-40 -right-44"
                 src={blurIndigoImage}
-                alt=""
+                alt="Secure crypto payment escrow service visual"
                 width={567}
                 height={567}
                 unoptimized

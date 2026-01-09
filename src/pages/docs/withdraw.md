@@ -61,5 +61,5 @@ try {
 | `CANCELED` | Buyer (full amount) |
 
 #### Related Methods
-- [`getWalletBalance()`](/docs/get-wallet-balance) – Check available balance
-- [`simulateWithdraw()`](/docs/simulate-withdraw) – Test withdrawal first
+- [`getTokenBalance()`](/docs/get-token-balance) – Check token balance
+- [`predictWalletAddress()`](/docs/predict-wallet-address) – Get escrow wallet address

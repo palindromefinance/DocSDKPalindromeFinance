@@ -83,4 +83,4 @@ const decimals1 = await sdk.getTokenDecimals(token);
 const decimals2 = await sdk.getTokenDecimals(token);
 ```
 
-**See also** → [`getTokenBalance()`](/docs/get-token-balance-of) · [`formatTokenAmount()`](/docs/format-token-amount)
+**See also** → [`getTokenBalance()`](/docs/get-token-balance) · [`formatTokenAmount()`](/docs/format-token-amount)
