@@ -2,6 +2,14 @@ import { nodes as defaultNodes, Tag } from '@markdoc/markdoc'
 import { Fence } from '@/components/Fence'
 import { Heading } from '@/components/Heading'
 
+function ExternalLink({ href, children }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  )
+}
+
 function generateID(children, attributes) {
   if (attributes.id && typeof attributes.id === 'string') {
     return attributes.id
@@ -52,6 +60,12 @@ const nodes = {
       content: {
         type: String,
       },
+    },
+  },
+  link: {
+    render: ExternalLink,
+    attributes: {
+      href: { type: String, required: true },
     },
   },
 }

@@ -33,6 +33,7 @@ export const createPalindromeSDK = (walletClient?: WalletClient) => {
   return new PalindromePaySDK({
     publicClient,
     walletClient: walletClient ?? undefined,
+    apolloClient,
     chain: bscTestnet,
   });
 };
