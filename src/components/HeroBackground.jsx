@@ -20,13 +20,53 @@ export function HeroBackground(props) {
             d="M0 0h668v1068.8H0z"
           />
         </clipPath>
+        <style>
+          {`
+            @keyframes pulse-line {
+              0%, 100% { opacity: 0.3; }
+              50% { opacity: 0.6; }
+            }
+            @keyframes pulse-glow {
+              0%, 100% { opacity: 0.42; filter: drop-shadow(0 0 2px #0EA5E9); }
+              50% { opacity: 0.8; filter: drop-shadow(0 0 8px #0EA5E9); }
+            }
+            @keyframes matrix-star {
+              0% { transform: translateY(0); opacity: 0; }
+              2% { opacity: 1; }
+              98% { opacity: 0.8; }
+              100% { transform: translateY(474px); opacity: 0; }
+            }
+            .animate-pulse-line {
+              animation: pulse-line 4s ease-in-out infinite;
+            }
+            .animate-pulse-glow {
+              animation: pulse-glow 3s ease-in-out infinite;
+            }
+            .matrix-star-1 { animation: matrix-star 3s linear infinite; }
+            .matrix-star-2 { animation: matrix-star 4s linear infinite; }
+            .matrix-star-3 { animation: matrix-star 3.5s linear infinite; }
+            .matrix-star-4 { animation: matrix-star 4.5s linear infinite; }
+            .matrix-star-5 { animation: matrix-star 2.8s linear infinite; }
+            .matrix-star-6 { animation: matrix-star 3.8s linear infinite; }
+          `}
+        </style>
+        <radialGradient id={`${id}-star-glow`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+          <stop offset="30%" stopColor="#ffffff" stopOpacity="0.8" />
+          <stop offset="60%" stopColor="#ffffff" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+        </radialGradient>
       </defs>
       <g opacity=".4" clipPath={`url(#${id}-clip-path)`} strokeWidth={4}>
         <path
-          opacity=".3"
+          className="animate-pulse-line"
           d="M584.5 770.4v-474M484.5 770.4v-474M384.5 770.4v-474M283.5 769.4v-474M183.5 768.4v-474M83.5 767.4v-474"
           stroke="#334155"
         />
+        {/* Matrix-style white star particles */}
+        <circle cx="83.5" cy="296" r="6" fill={`url(#${id}-star-glow)`} className="matrix-star-1" style={{ animationDelay: '0s' }} />
+        <circle cx="283.5" cy="296" r="6" fill={`url(#${id}-star-glow)`} className="matrix-star-3" style={{ animationDelay: '1s' }} />
+        <circle cx="484.5" cy="296" r="6" fill={`url(#${id}-star-glow)`} className="matrix-star-5" style={{ animationDelay: '2s' }} />
         <path
           d="M83.5 221.275v6.587a50.1 50.1 0 0 0 22.309 41.686l55.581 37.054a50.102 50.102 0 0 1 22.309 41.686v6.587M83.5 716.012v6.588a50.099 50.099 0 0 0 22.309 41.685l55.581 37.054a50.102 50.102 0 0 1 22.309 41.686v6.587M183.7 584.5v6.587a50.1 50.1 0 0 0 22.31 41.686l55.581 37.054a50.097 50.097 0 0 1 22.309 41.685v6.588M384.101 277.637v6.588a50.1 50.1 0 0 0 22.309 41.685l55.581 37.054a50.1 50.1 0 0 1 22.31 41.686v6.587M384.1 770.288v6.587a50.1 50.1 0 0 1-22.309 41.686l-55.581 37.054A50.099 50.099 0 0 0 283.9 897.3v6.588"
           stroke="#334155"
@@ -89,6 +129,7 @@ export function HeroBackground(props) {
           fill="#0EA5E9"
           fillOpacity=".42"
           stroke="#0EA5E9"
+          className="animate-pulse-glow"
         />
         <circle
           cx="384.1"
@@ -143,6 +184,8 @@ export function HeroBackground(props) {
           fill="#0EA5E9"
           fillOpacity=".42"
           stroke="#0EA5E9"
+          className="animate-pulse-glow"
+          style={{ animationDelay: '1.5s' }}
         />
         <circle
           cx="484.301"

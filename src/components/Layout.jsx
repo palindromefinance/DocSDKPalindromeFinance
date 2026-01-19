@@ -147,9 +147,9 @@ function Header({ navigation }) {
         <MobileNavigation navigation={navigation} />
       </div>
       <div className="relative flex flex-grow basis-0 items-center">
-        <Link href="/" aria-label="Home page">
+        <a href="https://www.palindromepay.com" aria-label="Palindrome Pay Home">
           <Logo logo={Palindrome_crypto_pay} />
-        </Link>
+        </a>
       </div>
       <div className="-my-5 mr-6 sm:mr-8 md:mr-0">
         {/* <Search /> */}
